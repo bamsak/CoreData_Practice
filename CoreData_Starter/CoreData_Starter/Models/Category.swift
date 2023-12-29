@@ -9,8 +9,8 @@ enum Category: Int {
     
     var cellIdentifier: String {
         switch self {
-        case .catchphrase: "CatchphraseCell"
-        case .dadJoke: "DadJokeCell"
+        case .catchphrase: return "CatchphraseCell"
+        case .dadJoke: return "DadJokeCell"
         }
     }
 }

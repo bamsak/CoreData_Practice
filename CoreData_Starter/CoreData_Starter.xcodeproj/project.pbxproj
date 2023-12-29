@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FF21CFA2B3EE8BC0042FFD4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21CF82B3EE8BC0042FFD4 /* Model.xcdatamodeld */; };
+		7FF21CFF2B3EEA8F0042FFD4 /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21CFB2B3EEA8F0042FFD4 /* UserEntity+CoreDataClass.swift */; };
+		7FF21D002B3EEA8F0042FFD4 /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21CFC2B3EEA8F0042FFD4 /* UserEntity+CoreDataProperties.swift */; };
+		7FF21D012B3EEA8F0042FFD4 /* JokeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21CFD2B3EEA8F0042FFD4 /* JokeEntity+CoreDataClass.swift */; };
+		7FF21D022B3EEA8F0042FFD4 /* JokeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21CFE2B3EEA8F0042FFD4 /* JokeEntity+CoreDataProperties.swift */; };
+		7FF21D082B3EEB4F0042FFD4 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF21D072B3EEB4F0042FFD4 /* CoreDataManger.swift */; };
 		B43048DD2B22DF93006BDCB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43048DC2B22DF93006BDCB4 /* AppDelegate.swift */; };
 		B43048DF2B22DF93006BDCB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43048DE2B22DF93006BDCB4 /* SceneDelegate.swift */; };
 		B43048E12B22DF93006BDCB4 /* JokeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43048E02B22DF93006BDCB4 /* JokeListViewController.swift */; };
@@ -26,6 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7FF21CF92B3EE8BC0042FFD4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7FF21CFB2B3EEA8F0042FFD4 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7FF21CFC2B3EEA8F0042FFD4 /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7FF21CFD2B3EEA8F0042FFD4 /* JokeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7FF21CFE2B3EEA8F0042FFD4 /* JokeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JokeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7FF21D072B3EEB4F0042FFD4 /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
 		B43048D92B22DF93006BDCB4 /* CoreData_Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreData_Starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43048DC2B22DF93006BDCB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B43048DE2B22DF93006BDCB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +69,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FF21D032B3EEAA10042FFD4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7FF21D062B3EEB380042FFD4 /* Utilty */,
+				7FF21D052B3EEB240042FFD4 /* ManagedObject */,
+				7FF21CF82B3EE8BC0042FFD4 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7FF21D052B3EEB240042FFD4 /* ManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				7FF21CFB2B3EEA8F0042FFD4 /* UserEntity+CoreDataClass.swift */,
+				7FF21CFC2B3EEA8F0042FFD4 /* UserEntity+CoreDataProperties.swift */,
+				7FF21CFD2B3EEA8F0042FFD4 /* JokeEntity+CoreDataClass.swift */,
+				7FF21CFE2B3EEA8F0042FFD4 /* JokeEntity+CoreDataProperties.swift */,
+			);
+			path = ManagedObject;
+			sourceTree = "<group>";
+		};
+		7FF21D062B3EEB380042FFD4 /* Utilty */ = {
+			isa = PBXGroup;
+			children = (
+				7FF21D072B3EEB4F0042FFD4 /* CoreDataManger.swift */,
+			);
+			path = Utilty;
+			sourceTree = "<group>";
+		};
 		B43048D02B22DF93006BDCB4 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +117,7 @@
 		B43048DB2B22DF93006BDCB4 /* CoreData_Starter */ = {
 			isa = PBXGroup;
 			children = (
+				7FF21D032B3EEAA10042FFD4 /* CoreData */,
 				B43C9B192B29488900EBBD79 /* ⭐️CoreDataCRUD⭐️ */,
 				B43048F62B22F084006BDCB4 /* ViewControllers */,
 				B43048F72B22F08B006BDCB4 /* Models */,
@@ -209,8 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B43C9B182B29488000EBBD79 /* JokeTabBarController+CoreDataCRUD.swift in Sources */,
+				7FF21D022B3EEA8F0042FFD4 /* JokeEntity+CoreDataProperties.swift in Sources */,
+				7FF21CFF2B3EEA8F0042FFD4 /* UserEntity+CoreDataClass.swift in Sources */,
+				7FF21D012B3EEA8F0042FFD4 /* JokeEntity+CoreDataClass.swift in Sources */,
+				7FF21D082B3EEB4F0042FFD4 /* CoreDataManger.swift in Sources */,
 				B43049012B230B1C006BDCB4 /* UserSaveViewController.swift in Sources */,
 				B43048FD2B23077F006BDCB4 /* UserListViewController.swift in Sources */,
+				7FF21CFA2B3EE8BC0042FFD4 /* Model.xcdatamodeld in Sources */,
 				B43048E12B22DF93006BDCB4 /* JokeListViewController.swift in Sources */,
 				B43048DD2B22DF93006BDCB4 /* AppDelegate.swift in Sources */,
 				B43C9B162B29487200EBBD79 /* UserListViewController+CoreDataCRUD.swift in Sources */,
@@ -219,6 +266,7 @@
 				B43048DF2B22DF93006BDCB4 /* SceneDelegate.swift in Sources */,
 				B43048F32B22E971006BDCB4 /* JokeSaveViewController.swift in Sources */,
 				B43048F52B22F009006BDCB4 /* Category.swift in Sources */,
+				7FF21D002B3EEA8F0042FFD4 /* UserEntity+CoreDataProperties.swift in Sources */,
 				B431C29E2B27F9170057802E /* JokeTabBarController.swift in Sources */,
 				B4A806372B289A08009ED350 /* Protocols.swift in Sources */,
 			);
@@ -445,6 +493,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7FF21CF82B3EE8BC0042FFD4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7FF21CF92B3EE8BC0042FFD4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7FF21CF92B3EE8BC0042FFD4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B43048D12B22DF93006BDCB4 /* Project object */;
 }
