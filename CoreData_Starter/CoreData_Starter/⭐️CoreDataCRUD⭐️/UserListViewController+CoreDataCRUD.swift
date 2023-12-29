@@ -3,7 +3,7 @@
 //  CoreData_Starter
 //
 
-//import CoreData
+import Foundation
 
 //MARK: - ⭐️ CoreData CURD 구현하기 ⭐️
 extension UserListViewController: CoreDataManagable {
@@ -40,6 +40,17 @@ extension UserListViewController: CoreDataManagable {
         // 이 곳에서 CoreData의 특정 User data를 업데이트하세요.
         // ---------------------------------------------------------------------------------------------------------//
         
+        let context = CoreDataManger.shared.context
+        let request = UserEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", data.id as CVarArg)
+        
+        let result = CoreDataManger.shared.fetchData(request)
+        
+        if let userToUpdate = result.first {
+            userToUpdate.name = data.name
+        }
+        
+        CoreDataManger.shared.saveContext()
     }
     
     func deleteCoreData(_ data: User) {
@@ -47,5 +58,16 @@ extension UserListViewController: CoreDataManagable {
         // 이 곳에서 CoreData의 특정 User data를 삭제하세요.
         // ---------------------------------------------------------------------------------------------------------//
         
+        let context = CoreDataManger.shared.context
+        let request = UserEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", data.id as CVarArg)
+        
+        let result = CoreDataManger.shared.fetchData(request)
+        
+        if let userToDelete = result.first {
+            context.delete(userToDelete)
+        }
+        
+        CoreDataManger.shared.saveContext()
     }
 }
