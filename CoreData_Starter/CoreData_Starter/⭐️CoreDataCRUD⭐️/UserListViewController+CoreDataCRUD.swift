@@ -3,8 +3,6 @@
 //  CoreData_Starter
 //
 
-import Foundation
-
 //MARK: - ⭐️ CoreData CURD 구현하기 ⭐️
 extension UserListViewController: CoreDataManagable {
     func saveCoreData(_ data: User) {
@@ -32,7 +30,7 @@ extension UserListViewController: CoreDataManagable {
             else { return nil }
             return User(id: id, name: name, jokes: [])
         }
-        return users // 샘플 데이터입니다. CoreData에서 받아올 수 있도록 변경해보세요.
+        return users
     }
     
     func updateCoreData(_ data: User) {
@@ -40,9 +38,8 @@ extension UserListViewController: CoreDataManagable {
         // 이 곳에서 CoreData의 특정 User data를 업데이트하세요.
         // ---------------------------------------------------------------------------------------------------------//
         
-        let context = CoreDataManger.shared.context
         let request = UserEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", data.id as CVarArg)
+        request.predicate = FilterPredicate.id(data.id).nsPredicate
         
         let result = CoreDataManger.shared.fetchData(request)
         
@@ -60,7 +57,7 @@ extension UserListViewController: CoreDataManagable {
         
         let context = CoreDataManger.shared.context
         let request = UserEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", data.id as CVarArg)
+        request.predicate = FilterPredicate.id(data.id).nsPredicate
         
         let result = CoreDataManger.shared.fetchData(request)
         
