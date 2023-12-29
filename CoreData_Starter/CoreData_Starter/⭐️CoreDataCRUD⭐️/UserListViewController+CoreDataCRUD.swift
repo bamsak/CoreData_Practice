@@ -9,6 +9,7 @@ extension UserListViewController: CoreDataManagable {
         // ---------------------------------------------------------------------------------------------------------//
         // 이 곳에서 CoreData에 User data를 저장하세요.
         // ---------------------------------------------------------------------------------------------------------//
+        
         let context = CoreDataManger.shared.context
         let userEntity = UserEntity(context: context)
         userEntity.id = data.id

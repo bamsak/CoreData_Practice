@@ -18,7 +18,7 @@ extension JokeEntity {
 
     @NSManaged public var id: UUID?
     @NSManaged public var category: Int16
-    @NSManaged public var body: String?
+    @NSManaged public var content: String?
     @NSManaged public var userRelationship: UserEntity?
 
 }
