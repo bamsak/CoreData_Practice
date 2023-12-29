@@ -25,4 +25,24 @@ final class CoreDataManger {
         }
         self.container = container
     }
+    
+    func saveContext(backgroundContext: NSManagedObjectContext? = nil) {
+        let context = backgroundContext ?? self.context
+        guard context.hasChanges else { return }
+        do {
+            try context.save()
+        } catch {
+            print("context save error: \(error)")
+        }
+    }
+    
+    func fetchData<T: NSManagedObject>(_ request: NSFetchRequest<T>) -> [T] {
+        do {
+            let result = try context.fetch(request)
+            return result
+        } catch {
+            print("fetch error: \(error)")
+            return []
+        }
+    }
 }
