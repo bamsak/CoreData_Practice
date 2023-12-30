@@ -13,4 +13,13 @@ enum Category: Int {
         case .dadJoke: return "DadJokeCell"
         }
     }
+    
+    var value: Int16 {
+        switch self {
+        case .catchphrase:
+            return 0
+        case .dadJoke:
+            return 1
+        }
+    }
 }
