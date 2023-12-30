@@ -9,6 +9,6 @@
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="jokeRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JokeEntity" inverseName="userRelationship" inverseEntity="JokeEntity"/>
+        <relationship name="jokeRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JokeEntity" inverseName="userRelationship" inverseEntity="JokeEntity"/>
     </entity>
 </model>

@@ -63,11 +63,34 @@ extension JokeTabBarController: CoreDataManagable {
         // ---------------------------------------------------------------------------------------------------------//
         // 이 곳에서 CoreData의 특정 Joke data를 업데이트하세요.
         // ---------------------------------------------------------------------------------------------------------//
+        
+        let context = CoreDataManger.shared.context
+        let request = JokeEntity.fetchRequest()
+        request.predicate = FilterPredicate.id(data.id).nsPredicate
+        
+        let result = CoreDataManger.shared.fetchData(request)
+        if let jokeToUpdate = result.first {
+            jokeToUpdate.category = data.category.value
+            jokeToUpdate.content = data.content
+        }
+        
+        CoreDataManger.shared.saveContext()
     }
     
     func deleteCoreData(_ data: Joke) {
         // ---------------------------------------------------------------------------------------------------------//
         // 이 곳에서 CoreData의 특정 Joke data를 삭제하세요.
         // ---------------------------------------------------------------------------------------------------------//
+        
+        let context = CoreDataManger.shared.context
+        let request = JokeEntity.fetchRequest()
+        request.predicate = FilterPredicate.id(data.id).nsPredicate
+        
+        let result = CoreDataManger.shared.fetchData(request)
+        if let jokeToDelete = result.first {
+            context.delete(jokeToDelete)
+        }
+        
+        CoreDataManger.shared.saveContext()
     }
 }
