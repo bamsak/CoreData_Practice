@@ -12,6 +12,21 @@ extension JokeTabBarController: CoreDataManagable {
         // 2. 나중에 User에 관한 CoreData CRUD가 완성이 되면, 그때 currentUser 파라미터를 사용하여 Relationship을 설정하도록 해봅니다.
         // ---------------------------------------------------------------------------------------------------------//
         
+        let context = CoreDataManger.shared.context
+        let jokeEntity = JokeEntity(context: context)
+        jokeEntity.id = data.id
+        jokeEntity.content = data.content
+        jokeEntity.category = data.category.value
+        
+        let request = UserEntity.fetchRequest()
+        request.predicate = FilterPredicate.id(currentUser.id).nsPredicate
+        let result = CoreDataManger.shared.fetchData(request)
+        
+        if let userToRelationship = result.first {
+            userToRelationship.addToJokeRelationship(jokeEntity)
+        }
+        
+        CoreDataManger.shared.saveContext()
     }
     
     func fetchWithPredicate(currentUser: User, currentCategory: Category) -> [Joke] {
@@ -28,7 +43,20 @@ extension JokeTabBarController: CoreDataManagable {
         // 위 두 가지를 만족하는 데이터들만 가져올 수 있도록 NSPredicate를 만들어보세요.
         // ---------------------------------------------------------------------------------------------------------//
         
-        return Joke.sampleJokes // 샘플 데이터입니다. CoreData에서 받아올 수 있도록 변경해보세요.
+        let request = JokeEntity.fetchRequest()
+        request.predicate = FilterPredicate.filteredJoke(id: currentUser.id, category: currentCategory.value).nsPredicate
+        
+        let result = CoreDataManger.shared.fetchData(request)
+        let jokes: [Joke] = result.compactMap { jokeEntity in
+            guard let id = jokeEntity.id,
+                  let content = jokeEntity.content,
+                  let category = Category(rawValue: Int(jokeEntity.category))
+            else { return nil }
+            
+            return Joke(id: id, content: content, category: category)
+        }
+        
+        return jokes
     }
     
     func updateCoreData(_ data: Joke) {
