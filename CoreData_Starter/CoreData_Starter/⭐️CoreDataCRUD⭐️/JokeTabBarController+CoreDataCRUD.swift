@@ -64,7 +64,6 @@ extension JokeTabBarController: CoreDataManagable {
         // 이 곳에서 CoreData의 특정 Joke data를 업데이트하세요.
         // ---------------------------------------------------------------------------------------------------------//
         
-        let context = CoreDataManger.shared.context
         let request = JokeEntity.fetchRequest()
         request.predicate = FilterPredicate.id(data.id).nsPredicate
         
